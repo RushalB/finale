@@ -1,0 +1,36 @@
+{% extends 'movieinfo_app/base.html' %}
+
+{% block title %}
+    Actor List
+{% endblock %}
+
+{#{% block create_button %}#}
+{#    {% if perms.courseinfo.add_course %}#}
+{#    <a#}
+{#        href="{% url 'courseinfo_course_create_urlpattern'  %}"#}
+{#        class="button button-primary">#}
+{#      Create New Course</a>#}
+{#    {% endif %}#}
+{#{% endblock %}#}
+
+{% block org_content %}
+  <h2>Actor List</h2>
+{#    {% if perms.courseinfo.add_course %}#}
+{#    <div class="mobile">#}
+{#      <a#}
+{#          href="{% url 'courseinfo_course_create_urlpattern' %}"#}
+{#          class="button button-primary">#}
+{#        Create New Course</a>#}
+{#    </div>#}
+{#    {% endif %}#}
+  <ul>
+    {% for actor in actor_list %}
+      <li>
+        <a href="{{ actor.get_absolute_url }}">
+          {{ actor }}</a>
+      </li>
+    {% empty %}
+      <li><em>There are currently no actors available.</em></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
